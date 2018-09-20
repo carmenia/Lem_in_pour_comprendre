@@ -98,6 +98,7 @@ int			ft_parse(char *line, t_game *game)
 {
 	if (ft_strlen(line) == 0)
 		return (ft_error("empty_line"));
+	//ft_check.c
 	if (ft_is_com(line))
 		;
 	else if (ft_digit(line) || ft_is_start(line) || ft_is_end(line))
