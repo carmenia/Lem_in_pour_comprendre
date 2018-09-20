@@ -42,10 +42,9 @@ int			ft_digit(char *str)
 	while (str[i] != '\0' && ok == 1)
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-			;
+			i++;
 		else
 			ok = 0;
-		i++;
 	}
 	if (ok == 1)
 		return (1);
@@ -57,6 +56,7 @@ static	int	ft_start_end_fz_line(t_game *game, char *line)
 {
 	if (ft_digit(line))
 	{
+		// je ne comprends pas l'utilite de ces lignes
 		if (line[0] == '-' || game->f_section != 0)
 			return (ft_error("wrong_ants"));
 		game->nb_ants = ft_atoi(line);
@@ -98,7 +98,7 @@ int			ft_parse(char *line, t_game *game)
 {
 	if (ft_strlen(line) == 0)
 		return (ft_error("empty_line"));
-	//ft_check.c
+	//ft_check.c, permet de voir si la premiere ligne est un commentaire
 	if (ft_is_com(line))
 		;
 	else if (ft_digit(line) || ft_is_start(line) || ft_is_end(line))
